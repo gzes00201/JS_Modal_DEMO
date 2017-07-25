@@ -90,6 +90,30 @@ for(var i = 0; i < close.length; i++) {
      });
   })(i);
 }
+//綁定點選空白處modal關閉
+var mode_close = document.getElementsByClassName('modal');
+//透過CLASS
+for(var i = 0; i < mode_close.length; i++) {
+  (function(index) {
+    mode_close[index].addEventListener("click", function() {
+        //透過上上層的方法關閉
+        this.style.display = "none";      
+     });
+  })(i);
+}
+
+//綁定點選內容處，外層modal的關閉事件冒泡在此阻止
+var mode_content = document.getElementsByClassName('modal-content');
+//透過CLASS
+for(var i = 0; i < mode_content.length; i++) {
+  (function(index) {
+    mode_content[index].addEventListener("click", function() {
+        //外層click冒泡在此阻止
+        event.preventDefault();event.stopPropagation();
+     });
+  })(i);
+}
+
 </script>
 
 </body>
