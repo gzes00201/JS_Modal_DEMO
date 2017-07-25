@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <title>純JS Modal視窗</title>
+<head>
+<style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Modal 範例</h2>
+
+
+<button class="modal_Btn" data-target="myModal2">訊息2</button>
+<!-- 內容 -->
+<div id="myModal2" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>顯示訊息2</p>
+  </div>
+</div>
+
+
+<button class="modal_Btn" data-target="myModal">訊息1</button>
+<!-- The 內容 -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>顯示訊息1</p>
+  </div>
+</div>
+
+<script>
+// 綁定開啟事件 透過CLASS
+var modal = document.getElementsByClassName('modal_Btn');
+//迴圈綁定每個modal
+for(var i = 0; i < modal.length; i++) {
+  (function(index) {
+    modal[index].addEventListener("click", function() { 
+       document.getElementById(this.getAttribute("data-target")).style.display = "block";       
+     })
+  })(i);
+}
+
+// 綁定關閉事件 透過CLASS
+var close = document.getElementsByClassName('close');
+//透過CLASS
+for(var i = 0; i < close.length; i++) {
+  (function(index) {
+    close[index].addEventListener("click", function() {
+        //透過上上層的方法關閉
+       this.parentElement.parentElement.style.display = "none";      
+     });
+  })(i);
+}
+</script>
+
+</body>
+</html>
