@@ -45,3 +45,17 @@ for(var i = 0; i < modal.length; i++) {
      })
   })(i);
 }
+
+本範例JS第二區塊綁定關閉事件，透過.modal綁定
+先把迴圈當下的自己id存起來
+var myid=close[index].getAttribute('id');
+並取得本div底下的第一個.close
+var close_span=close[index].getElementsByClassName('close')[0];
+綁定點選.close後，id是myid的物件(就是本DIV)會關閉
+document.getElementById(myid).style.display = "none";
+
+第三部分 綁定點選空白處modal關閉
+
+第四部分，因為內容區塊.modal-content 是被第三部分的.modal包覆
+因此當點選.modal-content的時候透過event.preventDefault();event.stopPropagation();來阻止
+.modal的關閉動作
