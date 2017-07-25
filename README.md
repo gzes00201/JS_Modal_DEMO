@@ -9,7 +9,7 @@ http://htmlpreview.github.io/?https://github.com/gzes00201/JS_Modal_DEMO/blob/ma
 結構
 
 Modal開啟的按鈕 使用class="modal_Btn"來監聽 並用data-target="myModal" 標註開啟內容
-範例:"<button class="modal_Btn" data-target="myModal">訊息1</button>"
+範例:<code><button class="modal_Btn" data-target="myModal">訊息1</button></code>
 
 開啟內容id="myModal"標註被開啟的，並用class="modal"告知此為Modal內容，裡面的 class="close"是關閉按鈕，不一定要用span
 範例:"
