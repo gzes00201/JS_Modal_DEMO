@@ -52,7 +52,7 @@
 <!-- 內容 -->
 <div id="myModal2" class="modal">
   <div class="modal-content">
-    <span class="close" data-target="myModal2">&times;</span>
+    <span class="close">&times;</span>
     <p>顯示訊息2</p>
   </div>
 </div>
@@ -62,7 +62,7 @@
 <!-- The 內容 -->
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <span class="close" data-target="myModal">&times;</span>
+    <span class="close">&times;</span>
     <p>顯示訊息1</p>
   </div>
 </div>
@@ -79,17 +79,20 @@ for(var i = 0; i < modal.length; i++) {
   })(i);
 }
 
-// 綁定關閉事件 透過CLASS
-var close = document.getElementsByClassName('close');
-//透過CLASS
+// 綁定關閉事件 透過modal
+var close = document.getElementsByClassName('modal');
+//透過modal內的.close 來關閉
 for(var i = 0; i < close.length; i++) {
   (function(index) {
-    close[index].addEventListener("click", function() {
+    var myid=close[index].getAttribute('id');
+    var close_span=close[index].getElementsByClassName('close')[0];
+    close_span.addEventListener("click", function() {
         //透過上上層的方法關閉
-        document.getElementById(this.getAttribute("data-target")).style.display = "none";      
+        document.getElementById(myid).style.display = "none";      
      });
   })(i);
 }
+
 //綁定點選空白處modal關閉
 var mode_close = document.getElementsByClassName('modal');
 //透過CLASS
