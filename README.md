@@ -10,6 +10,16 @@ http://htmlpreview.github.io/?https://github.com/gzes00201/JS_Modal_DEMO/blob/ma
 
 Modal開啟的按鈕 使用class="modal_Btn"來監聽 並用data-target="myModal" 標註開啟內容
 範例:
+<pre><code>This is a regular paragraph.
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Foo&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+This is another regular paragraph.
+</code></pre>
 <code><button class="modal_Btn" data-target="myModal">訊息1</button></code>
 
 開啟內容id="myModal"標註被開啟的，並用class="modal"告知此為Modal內容，裡面的 class="close"是關閉按鈕，不一定要用span
