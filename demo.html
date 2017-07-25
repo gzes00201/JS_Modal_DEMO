@@ -52,7 +52,7 @@
 <!-- 內容 -->
 <div id="myModal2" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" data-target="myModal2">&times;</span>
     <p>顯示訊息2</p>
   </div>
 </div>
@@ -62,7 +62,7 @@
 <!-- The 內容 -->
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <span class="close">&times;</span>
+    <span class="close" data-target="myModal">&times;</span>
     <p>顯示訊息1</p>
   </div>
 </div>
@@ -86,7 +86,7 @@ for(var i = 0; i < close.length; i++) {
   (function(index) {
     close[index].addEventListener("click", function() {
         //透過上上層的方法關閉
-       this.parentElement.parentElement.style.display = "none";      
+        document.getElementById(this.getAttribute("data-target")).style.display = "none";      
      });
   })(i);
 }
