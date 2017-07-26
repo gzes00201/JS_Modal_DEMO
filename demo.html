@@ -4,6 +4,9 @@
 <head>
 <style>
 /* The Modal (background) */
+.modal-open {
+    overflow: hidden;
+}
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -47,7 +50,6 @@
 
 <h2>Modal 範例</h2>
 
-
 <button class="modal_Btn" data-target="myModal2">訊息2</button>
 <!-- 內容 -->
 <div id="myModal2" class="modal">
@@ -66,7 +68,7 @@
     <p>顯示訊息1</p>
   </div>
 </div>
-
+<p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p><p>DEMO</p>
 <script>
 // 綁定開啟事件 透過CLASS
 var modal = document.getElementsByClassName('modal_Btn');
@@ -74,7 +76,8 @@ var modal = document.getElementsByClassName('modal_Btn');
 for(var i = 0; i < modal.length; i++) {
   (function(index) {
     modal[index].addEventListener("click", function() { 
-       document.getElementById(this.getAttribute("data-target")).style.display = "block";       
+       document.getElementById(this.getAttribute("data-target")).style.display = "block";  
+       document.getElementsByTagName("BODY")[0].classList.add("modal-open");
      })
   })(i);
 }
@@ -88,7 +91,8 @@ for(var i = 0; i < close.length; i++) {
     var close_span=close[index].getElementsByClassName('close')[0];
     close_span.addEventListener("click", function() {
         //透過上上層的方法關閉
-        document.getElementById(myid).style.display = "none";      
+        document.getElementById(myid).style.display = "none";   
+        document.getElementsByTagName("BODY")[0].classList.remove("modal-open");   
      });
   })(i);
 }
@@ -100,7 +104,8 @@ for(var i = 0; i < mode_close.length; i++) {
   (function(index) {
     mode_close[index].addEventListener("click", function() {
         //透過上上層的方法關閉
-        this.style.display = "none";      
+        this.style.display = "none";    
+        document.getElementsByTagName("BODY")[0].classList.remove("modal-open");        
      });
   })(i);
 }
